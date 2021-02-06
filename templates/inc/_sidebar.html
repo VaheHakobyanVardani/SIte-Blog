@@ -1,0 +1,31 @@
+{% load sidebar %}
+{% load menu %}
+<div class="col-lg-4">
+  <div class="sidebar">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="sidebar-item search">
+          <form id="search_form" name="gs" method="GET" action="{% url 'search' %}">
+            <input type="text" name="s" class="searchText" placeholder="Поиск по сайту..." autocomplete="on">
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-12">
+          {% get_popular 3 %}
+      <div class="col-lg-12">
+        <div class="sidebar-item categories">
+          <div class="sidebar-heading">
+            <h2>Категории</h2>
+          </div>
+
+          {% show_menu_sidebar %}
+          
+        </div>
+      </div>
+      <div class="col-lg-12">
+        {% get_tags %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
