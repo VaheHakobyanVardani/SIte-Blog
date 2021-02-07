@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from embed_video.fields import EmbedVideoField
 # Create your models here.
 
 class Category(models.Model):
@@ -44,6 +45,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT,
                                                         related_name='posts', verbose_name='Категория')
     tags = models.ManyToManyField(Tag, blank = True, related_name='posts', verbose_name='Теги')
+    video = EmbedVideoField(default='')
 
     def __str__(self):
         return self.title

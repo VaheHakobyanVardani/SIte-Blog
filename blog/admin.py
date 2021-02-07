@@ -2,6 +2,7 @@ from django.contrib import admin
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.utils.safestring import mark_safe
+from embed_video.admin import AdminVideoMixin
 
 # Register your models here.
 from .models import *
@@ -13,7 +14,7 @@ class PostAdminForm(forms.ModelForm):
         model = Post
         fields = '__all__'
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(AdminVideoMixin, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     form = PostAdminForm
     save_as = True
@@ -24,7 +25,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('category','tags')
     readonly_fields = ('views', 'created_at', 'get_photo')
     fields = ('title', 'slug', 'category', 'tags','content', 'photo',
-                         'get_photo', 'views', 'created_at' )
+                         'get_photo', 'views', 'created_at', 'video')
 
     def get_photo(self, obj):
         if obj.photo:

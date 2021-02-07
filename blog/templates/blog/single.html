@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load embed_video_tags %}
 
 {% block title %} {{post.title}} :: {{block.super}} {% endblock %}
 
@@ -40,6 +41,13 @@
                     <li><a href="#">{{post.created_at}}</a></li>
                   </ul>
                   {{post.content | safe}}
+                  {% if post.video %}
+                  {% video post.video '640x400' %}
+
+                    {% video post.video as my_video %}
+
+                    {% endvideo %}
+                  {% endif %}  
                   <div class="post-options">
                     <div class="row">
                       <div class="col-6">

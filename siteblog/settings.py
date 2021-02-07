@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
+    'djmoney',
+    'django_countries',
+    'embed_video',
     'blog.apps.BlogConfig',
+    'players.apps.PlayersConfig',
 ]
 
 MIDDLEWARE = [

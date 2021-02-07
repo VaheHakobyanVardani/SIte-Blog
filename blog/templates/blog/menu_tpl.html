@@ -1,6 +1,8 @@
 <div class="collapse navbar-collapse {{ menu_class }} " id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
-
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'players' %}">футболисты</a>
+      </li>
         {% for i in categories %}
         <li class="nav-item">
           <a class="nav-link" href="{{ i.get_absolute_url }}">{{ i.title }}</a>

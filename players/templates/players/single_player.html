@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+<div class="row">
+<div class="card-deck">
+<div class="col-lg-8">
+
+<div class="card shadow">
+
+
+<img class='card-img-top' src="{{ player.photo.url }}" alt="{{player.name}}">
+  <div class="card-body">
+  <h5 class="card-title">{{player.name}}</h5>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Год рождения: {{player.birthdate}}</li>
+    <li class="list-group-item">Действующий клуб Клуб: {{player.club}}</li>
+    <li class="list-group-item">Место рождения: {{player.born_place}}</li>
+    <li class="list-group-item">Цена  Transfermarkt: {{player.price}}</li>
+    <li class="list-group-item">Рабочая нога: {{player.foot}}</li>
+    <li class="list-group-item">
+      Матчи за сборную Армении: <b>{{ player.national_matches }} | </b>
+      Голы: <b>{{ player.national_goals }} | </b>
+      Голевые передачи: <b>{{ player.national_assists }}</b>
+    </li>
+  </ul>
+
+  <br>
+  <b class="list-group-item">Статистика в сезоне 2020/21 </b>
+<table class="table">
+  <thead class="">
+    <tr>
+      <th scope="col">Турнир</th>
+      <th scope="col">Матчи</th>
+      <th scope="col">Голы</th>
+      <th scope="col">Ассисты</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+
+      <th scope="row">{{player.chempionship}}</th>
+      <td>{{player.matches_chempionship}}</td>
+      <td>{{player.goals_chempionship}}</td>
+      <td>{{player.assists_chempionship}}</td>
+
+    </tr>
+    <tr>
+
+      <th scope="row">{{player.cup_name}}</th>
+      <td>{{player.matches_cup}}</td>
+      <td>{{player.goals_cup}}</td>
+      <td>{{player.assists_cup}}</td>
+
+    </tr>
+    <tr>
+
+      <th scope="row">{{player.international_cup}}</th>
+      <td>{{player.matches_international}}</td>
+      <td>{{player.goals_international}}</td>
+      <td>{{player.assists_international}}</td>
+
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+
+{% include 'inc/_sidebar.html' %}
+</div>
+</div>
+</div>
+
+
+{% endblock %}
